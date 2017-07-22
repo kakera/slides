@@ -251,7 +251,6 @@ function showSlide (index, element, old) {
     detail: {from: slideIndex, to: index},
   })
   if (!element.dispatchEvent(e)) return false
-
   if (old) old.classList.toggle('current')
   element.classList.toggle('current')
   slideIndex = index
@@ -283,7 +282,8 @@ function adjustSlide (curr) {
   s.visibility = 'hidden'
   s.transform = null
 
-  for (const e of c.children) {
+  for (let i = 0; i < c.children.length; i++) {
+    const e = c.children[i]
     if (isReplacedElement(e)) {
       e.style.width = w + 'px'
     } else {
@@ -298,7 +298,7 @@ function adjustSlide (curr) {
   // curr.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`
 
   s.transform = `translate(-50%, -50%) scale(${scale}) `
-  s.visibility = null
+  s.visibility = 'inherit'
 }
 
 window.onresize = adjustCurrentSlide
