@@ -1,0 +1,41 @@
+{
+  "presets": [
+    [
+      "es2015",
+      {
+        "modules": false,
+        "loose": true
+      }
+    ],
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    [
+      "transform-decorators-legacy",
+      [
+        "transform-runtime",
+        {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true,
+          "moduleName": "babel-runtime"
+        }
+      ]
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "loose": true
+          }
+        ],
+        "stage-0",
+        "react"
+      ]
+    }
+  }
+}
