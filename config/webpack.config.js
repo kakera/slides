@@ -47,7 +47,7 @@ module.exports = {
 
   module: {
     rules: [{
-      test: /\.(jpg|png|svg|woff2|woff)$/,
+      test: /\.(jpg|png|svg|woff2|woff|md)$/,
       exclude: /node_modules/,
       use: [{
         loader: 'url-loader',
@@ -57,7 +57,7 @@ module.exports = {
         }
       }],
     }, {
-      test: /\.(bin|md)$/,
+      test: /\.(bin)$/,
       exclude: /node_modules/,
       use: [{
         loader: 'file-loader',
@@ -165,7 +165,7 @@ module.exports = {
     host: '0.0.0.0',
     disableHostCheck: true,
     historyApiFallback: {
-      index: `${env.PUBLIC_PATH}/index.html`,
+      index: `${env.PUBLIC_PATH}index.html`,
       verbose: false, // 如路由出现问题时，可以打开 verbose 进行调试。
     },
     proxy: {

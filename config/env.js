@@ -19,11 +19,11 @@
 //
 
 exports['development'] = {
-  PUBLIC_PATH: '/slides',
+  PUBLIC_PATH: '/slides/',
   SERVER: false,
 }
 
 exports['production'] = {
-  PUBLIC_PATH: '/slides',
+  PUBLIC_PATH: '/slides/',
   SERVER: false,
 }
