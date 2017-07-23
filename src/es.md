@@ -334,23 +334,4 @@ async function main () {
 main()
 ```
 
-兼容性
-
-Node 8 以后支持率 99%
-
-那么浏览器呢？
-
-![浏览器兼容性](slides/res/es/browser_compatibility.png)
-
-Transpile
-转译
-
-Babel
-![Babel](slides/res/es/babel.png),
-可以应付大多数情况
-
-总结,
-JavaScript 今非昔比
-
-
 Q&A
