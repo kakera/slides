@@ -56,3 +56,60 @@ console.log(x, y) // 1, 10
 const point = {x: 100, y: 1000}
 const {x, y} = point
 console.log(x, y) // 100, 1000
+
+const rect = {width: 3, height: 4}
+const message = `Area is ${rect.width * rect.height}`
+console.log(message)
+
+const proxied = new Proxy({}, {
+  get (target, name) {
+    return Reflect.get(target, name)
+  },
+  set (target, name, value, receiver) {
+    console.log(`${name} setter is called.`)
+    Reflect.set(target, name, value, receiver)
+  }
+})
+proxied.foo = 100
+// foo setter is called.
+console.log(proxied.foo)
+// 100
+
+{
+  const array = []
+  const object = {}
+  const my_set = new Set()
+  my_set.add(array.toString())
+  my_set.add(object)
+  console.log(my_set.has(array)) // false
+  console.log(my_set.has(object)) // true
+}
+
+{
+  const array = []
+  const object = {}
+  const my_map = new Map()
+  my_map.set(array, 'a')
+  my_map.set(object, 'b')
+  console.log(my_map.get(array)) // a
+  console.log(my_map.get(object)) // b
+}
+
+{
+  const foo = Symbol('foo')
+  const object = {}
+  object[foo] = 'bar'
+  console.log(object['foo']) // undefined
+  console.log(object[foo]) // bar
+  console.log(Object.keys(object)) // []
+}
+
+{
+  const list = [10, 100, 1000]
+  for (let n of list) {
+    console.log(n)
+  }
+  // 10
+  // 100
+  // 1000
+}

@@ -24,12 +24,7 @@ new Cat({name: 'melon'}).meow()
 
 ```js
 fetch('/data.json')
-  .then(res => {
-    if (res.ok) {
-      return res.json()
-    }
-    throw new Error(`Response error, status=${res.status}`)
-  })
+  .then(res => return res.json())
   .then(json => console.log('Fetch success', json))
   .catch(err => console.error('Fetch error', err.message))
 ```
@@ -97,7 +92,7 @@ ES2018,
 ES2019
 ES20...
 
-ES2015 特性
+ES2015 语法特性
 
 let, const
 块级作用域
@@ -185,4 +180,112 @@ console.log(x, y) // 1, 10
 const point = {x: 100, y: 1000}
 const {x, y, z} = point
 console.log(x, y, z) // 100, 1000, undefined
+```
+
+模板字符串
+Template Strings
+```js
+const rect = {width: 3, height: 4}
+const message = `Area is ${rect.width * rect.height}`
+console.log(message)
+// Area is 12
+```
+
+ES2015 新增对象
+
+Promise
+```js
+fetch('/data.json')
+  .then(res => return res.json())
+  .then(json => console.log('Fetch success', json))
+  .catch(err => console.error('Fetch error', err.message))
+```
+
+Proxy + Reflect
+流畅实现 AOP，依赖注入
+```js
+const proxied = new Proxy({}, {
+  get (target, name) {
+    return Reflect.get(target, name)
+  },
+  set (target, name, value, receiver) {
+    console.log(`${name} setter is called.`)
+    Reflect.set(target, name, value, receiver)
+  }
+})
+proxied.foo = 100
+// foo setter is called.
+console.log(proxied.foo)
+// 100
+```
+
+Set, WeakSet
+```js
+const array = []
+const object = {}
+const my_set = new Set()
+my_set.add(array.toString())
+my_set.add(object)
+console.log(my_set.has(array)) // false
+console.log(my_set.has(object)) // true
+```
+
+Map, WeakMap
+```js
+const array = []
+const object = {}
+const my_map = new Map()
+my_map.set(array, 'a')
+my_map.set(object, 'b')
+console.log(my_map.get(array)) // a
+console.log(my_map.get(object)) // b
+```
+
+Symbols
+属性名可以不是字符串
+```js
+const foo = Symbol('foo')
+const object = {}
+object[foo] = 'bar'
+console.log(object['foo']) // undefined
+console.log(object[foo]) // bar
+console.log(Object.keys(object)) // []
+```
+
+for ... of
+```js
+const array = [10, 100, 1000]
+for (let n of array) {
+  console.log(n)
+}
+// 10
+// 100
+// 1000
+```
+
+Iterator
+自定义迭代器
+```js
+function id_generator_new (max) {
+  let last = 0
+  return {
+    [Symbol.iterator] () {
+      return {
+        next() {
+          last++
+          return {value: last, done: last === max}
+        }
+      }
+    }
+  }
+}
+const id_generator = id_generator_new(10)
+for (let id of id_generator) {
+  console.log(id)
+}
+```
+
+Generator
+生成器
+```js
 ```
