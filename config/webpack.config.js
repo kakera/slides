@@ -16,8 +16,8 @@
 //          `*-*   `*-*  `*-*'
 //
 // Created by kk on 17/4/28.
-//
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin') //installed via npm
 const webpack = require('webpack') //to access built-in plugins
@@ -155,7 +155,12 @@ module.exports = {
       writeToFileEmit: true,
     }),
 
-    // new webpack.optimize.ModuleConcatenationPlugin(),
+    new CopyWebpackPlugin([{
+      from: './res',
+      to: 'res'
+    }], {
+      ignore: ['.DS_Store']
+    }),
   ],
 
   devServer: {

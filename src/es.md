@@ -1,6 +1,5 @@
 # 今天的
     JavaScript,
-    及未来趋势
 
 # 主讲
  张皓聪
@@ -24,7 +23,7 @@ new Cat({name: 'melon'}).meow()
 
 ```js
 fetch('/data.json')
-  .then(res => return res.json())
+  .then(res => res.json())
   .then(json => console.log('Fetch success', json))
   .catch(err => console.error('Fetch error', err.message))
 ```
@@ -40,8 +39,10 @@ async function main () {
   console.log('+1s')
   throw new Error('timeout')
 }
-main().catch(err = console.error(err.message)) // timeout
+main().catch(err => console.error(err.message)) // timeout
 ```
+
+JavaScript
 
 ECMAScript,
 和,
@@ -52,9 +53,8 @@ JavaScript
 的诞生
 
 Brendan Eich
-1995 年开发
-
-![Java 很流行所以就叫 JavaScript 吧](javascript_named.png)
+1995 年开发,
+"Java 很流行所以就叫 JavaScript 吧！"
 
 Netscape
 Navigator
@@ -69,6 +69,11 @@ Navigator
 统一 JavaScript 标准
 成立 TC39 团队
 修订 ECMA-262
+
+ECMAScript = 规范,
+JavaScript = 实现,
+当然也有浏览器不按规范实现
+![](slides/res/es/browser_nonstandard.png)
 
 ES3
 1999,
@@ -93,7 +98,8 @@ ES2018,
 ES2019
 ES20...
 
-ES2015 语法特性
+ES2015
+语法特性
 
 let, const
 块级作用域
@@ -207,12 +213,14 @@ for (let id of id_generator) {
 }
 ```
 
-ES2015 新增对象
+ES2015
+新增对象
 
 Promise
+不再嵌套回调
 ```js
 fetch('/data.json')
-  .then(res => return res.json())
+  .then(res => res.json())
   .then(json => console.log('Fetch success', json))
   .catch(err => console.error('Fetch error', err.message))
 ```
@@ -300,3 +308,49 @@ for (let id of id_generator) {
   console.log(id)
 }
 ```
+
+ES2016
+ES2017
+新增
+
+exponentiation
+幂运算符
+```js
+console.log(2 ** 2) // 4
+```
+
+async & await
+不用再写 callback 了
+```js
+async function main () {
+  try {
+    const res = await fetch('/data.json')
+    const json = await res.json()
+    console.log('Fetch success', json)
+  } catch (err) {
+    console.error('Fetch error', err.message)
+  }
+}
+main()
+```
+
+兼容性
+
+Node 8 以后支持率 99%
+
+那么浏览器呢？
+
+![浏览器兼容性](slides/res/es/browser_compatibility.png)
+
+Transpile
+转译
+
+Babel
+![Babel](slides/res/es/babel.png),
+可以应付大多数情况
+
+总结,
+JavaScript 今非昔比
+
+
+Q&A
