@@ -58,6 +58,7 @@ Brendan Eich
 
 Netscape
 Navigator
+网景浏览器
 
 <strong>E</strong>uropean,
 <strong>C</strong>omputer,
@@ -119,8 +120,8 @@ class Cat {
 new Cat({name: 'melon'}).meow()
 ```
 
-箭头函数
 Arrow Function
+箭头函数
 ```js
 let double = function (n) {
   return n * 2
@@ -131,8 +132,8 @@ double = (n) => {
 double = n => n * 2
 ```
 
-默认参数
 Default Parameters
+默认参数
 ```js
 function say (message = 'Hello') {
   console.log(message)
@@ -141,8 +142,8 @@ say() // 'Hello'
 say('Hi') // 'Hi'
 ```
 
-扩展运算符
 Array Rest + Spread
+扩展运算符
 ```js
 // 可选参数
 function process (...params) {
@@ -156,8 +157,8 @@ console.log([1, 10, ...a])
 // [1, 10, 100, 1000, 10000]
 ```
 
-模块化
 import & export
+模块化
 ```js
 // cat.js
 export default class Cat {
@@ -169,8 +170,8 @@ import Cat from './cat'
 new Cat()
 ```
 
-解构赋值
 Destruction
+解构赋值
 ```js
 // 数组
 const array = [1, 10, 100]
@@ -182,13 +183,28 @@ const {x, y, z} = point
 console.log(x, y, z) // 100, 1000, undefined
 ```
 
-模板字符串
 Template Strings
+模板字符串
 ```js
 const rect = {width: 3, height: 4}
 const message = `Area is ${rect.width * rect.height}`
 console.log(message)
 // Area is 12
+```
+
+Generator
+```js
+function* id_generator_new (max) {
+  let last = 0
+  while (++last < max) {
+    yield last
+  }
+  return last
+}
+const id_generator = id_generator_new(10)
+for (let id of id_generator) {
+  console.log(id)
+}
 ```
 
 ES2015 新增对象
@@ -283,9 +299,4 @@ const id_generator = id_generator_new(10)
 for (let id of id_generator) {
   console.log(id)
 }
-```
-
-Generator
-生成器
-```js
 ```
