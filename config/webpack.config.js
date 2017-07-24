@@ -166,7 +166,7 @@ module.exports = {
   devServer: {
     contentBase: false,
     compress: true,
-    port: 9000,
+    port: 2333,
     host: '0.0.0.0',
     disableHostCheck: true,
     historyApiFallback: {
