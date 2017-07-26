@@ -1,5 +1,7 @@
+请稍等 ⸜(* ॑꒳ ॑* )⸝
+
 # 今天的
-    JavaScript,
+    JavaScript
 
 # 主讲
  张皓聪
@@ -60,10 +62,10 @@ Netscape
 Navigator
 网景浏览器
 
-<strong>E</strong>uropean,
-<strong>C</strong>omputer,
-<strong>M</strong>anufacturers,
-<strong>A</strong>ssociation,
+**E**uropean,
+**C**omputer,
+**M**anufacturers,
+**A**ssociation,
 欧洲计算机厂商协会
 
 统一 JavaScript 标准
@@ -72,7 +74,7 @@ Navigator
 
 ECMAScript = 规范,
 JavaScript = 实现,
-当然也有浏览器不按规范实现
+当然也有不按规范实现的,
 ![](slides/res/es/browser_nonstandard.png)
 
 ES3
@@ -333,5 +335,8 @@ async function main () {
 }
 main()
 ```
+
+还有很多,
+篇幅有限,
 
 Q&A
